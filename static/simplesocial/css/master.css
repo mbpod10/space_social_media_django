@@ -4,3 +4,17 @@ body {
   background-color: black;
   color: white;
 }
+.form-input {
+  width: 50%;
+  margin: auto;
+}
+
+.home-p {
+  margin-left: 200px;
+  margin-top: 20px;
+  color: yellow;
+}
+
+.navbar {
+  border-bottom: grey solid 1px;
+}

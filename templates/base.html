@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Star Social</title>
+    <title>Star Board</title>
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -29,28 +29,31 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="{% static 'simplesocial/css/master.css' %}" />
+    <link rel="stylesheet" href="{% static 'simplesocial/css/planet.css' %}" />
     <link rel="icon" href="https://i.imgur.com/6Ap5tEH.jpg" />    
     
   </head>
   <body>
     <nav class="navbar mynav" role="navigation" id="navbar">
     			<div class="container">
-            <a class="navbar-brand mynav" href="{% url 'home' %}">Star Social</a>
+            <a class="navbar-brand mynav" href="{% url 'home' %}">Star Board</a>
     					<ul class="nav navbar-nav navbar-right">                          
     						{% if user.is_authenticated %}
                       <li><a href="{% url 'posts:create' %}" class="btn btn-simple">Post</a></li>
                       <li><a href="{% url 'groups:all' %}" class="btn btn-simple">Groups</a></li>
-                      <li><a href="{% url 'groups:create' %}" class="btn btn-simple">Create Group</a></li>
+                      <li><a href="{% url 'groups:create' %}" class="btn btn-simple">Create Group</a></li>                      
                       
-                      <li><a href="{% url 'accounts:logout' %}" class="btn btn-simple">Logout</a></li>
-                      <li><a><span class="glyphicon glyphicon-user"></span> @{{user.username}} </a></li>
     						{% else %}
     						      <li><a href="{% url 'groups:all' %}"class="btn btn-simple">Groups</a></li>
     						      <li><a href="{% url 'accounts:login' %}" class="btn btn-simple">Login</a></li>
-    						      <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign up</a></li>
+    						      <li><a href="{% url 'accounts:signup' %}" class="btn btn-simple">Sign Up</a></li>
     						{% endif %}                
                 <li><a href="https://github.com/mbpod10" class="btn btn-simple">GitHub</a></li> 
-                <li><a href="https://mbpod10.github.io/Project-1/"><span class="glyphicon glyphicon-phone"></span></a></li>   
+                <li><a href="https://mbpod10.github.io/Project-1/"><span class="glyphicon glyphicon-phone"></span></a></li>
+                {% if user.is_authenticated %}
+                  <li><a href="{%url 'posts:for_user' username=user.username%}"><span class="glyphicon glyphicon-user"></span> @{{user.username}} </a></li>
+                  <li><a href="{% url 'accounts:logout' %}" class="btn btn-simple">Logout</a></li>
+                {% endif %} 
     					</ul>
     			</div>
     </nav>

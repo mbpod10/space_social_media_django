@@ -3,11 +3,13 @@
 </head>
 {%extends 'base.html'%} {%load bootstrap3%} {%block content%}
 <div class="container-form">
-  <h1>Login</h1>
-  <form method="POST">
-    {% csrf_token %} {%bootstrap_form form%}
-    <input type="submit" class="btn btn-defatult" value="Login" />
-  </form>
+  <div class="form-input">
+    <h1>Login</h1>
+    <form method="POST">
+      {% csrf_token %} {%bootstrap_form form%}
+      <input type="submit" class="btn btn-defatult" value="Login" />
+    </form>
+  </div>
 </div>
 
 {%endblock%}
